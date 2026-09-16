@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resepin - Recipe Generator</title>
+  <meta name="description" content="Masukkan bahan yang kamu punya, Resepin carikan resep paling cocok dari database asli." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <span class="logo">
+        <span class="logo-icon" aria-hidden="true">🍲</span>
+        <span class="logo-text">Resepin</span>
+      </span>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">Recipe Generator</h1>
+        <p class="hero-subtitle">
+          Masukkan bahan yang kamu punya, kami carikan resep dari database asli
+          yang paling cocok dengan bahanmu.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== GENERATOR ===== -->
+    <section class="generator-section">
+      <div class="generator-card">
+
+        <label for="ingredientInput" class="generator-label">
+          Masukkan bahan yang kamu punya
+        </label>
+
+        <div class="ingredient-input-row">
+          <input
+            type="text"
+            id="ingredientInput"
+            class="ingredient-input"
+            placeholder="Contoh: ayam, bawang putih..."
+            autocomplete="off"
+          />
+          <button type="button" id="addIngredientBtn" class="btn btn-secondary">
+            + Tambahkan Bahan
+          </button>
+        </div>
+
+        <div class="ingredient-chips" id="ingredientChips" aria-live="polite">
+          <p class="chips-empty" id="chipsEmptyText">Belum ada bahan ditambahkan.</p>
+        </div>
+
+        <button type="button" id="generateBtn" class="btn btn-primary generate-btn">
+          Generate Recipe
+        </button>
+
+        <p class="generator-message" id="generatorMessage" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ===== HASIL GENERATOR ===== -->
+    <section class="results-section" id="resultsSection" hidden>
+      <div class="results-inner">
+        <h2 class="results-title">Hasil Pencocokan Resep</h2>
+        <p class="results-count" id="resultsCount" aria-live="polite"></p>
+        <div class="recipe-grid" id="resultsGrid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="logo-icon" aria-hidden="true">🍲</span>
+      <span class="logo-text">Resepin</span>
+      <p class="footer-copy">&copy; <span id="footerYear"></span> Resepin. Recipe Generator dari bahan yang kamu punya.</p>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL: DETAIL RESEP ===== -->
+  <div class="modal-overlay" id="detailModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+      <div class="modal-header">
+        <h2 id="detailModalTitle">Detail Resep</h2>
+        <button type="button" class="modal-close" id="closeDetailModal" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body" id="detailModalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    
+  <script type="module" src="app.js"></script>
+</body>
+</html>
