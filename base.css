@@ -1,0 +1,108 @@
+/* ==========================================================================
+   RESEPIN — BASE.CSS
+   Variabel warna, reset, elemen dasar (button, input global), dark mode.
+   Palet sengaja dibuat lebih SOFT/MUTED dibanding sebelumnya supaya nyaman
+   dibaca dalam waktu lama -- bukan warna gelap total, cuma diturunkan
+   intensitas & kecerahannya.
+   ========================================================================== */
+
+:root {
+  --primary: #e0568c;        /* pink lebih cerah & hidup (permintaan terbaru: jangan gelap/redup) */
+  --primary-dark: #c93f74;
+  --primary-light: #fbe4ec;  /* tint pink sedikit lebih hidup, senada --primary baru */
+  --text: #453f3b;           /* abu hangat, sebelumnya #343a40 (lebih dingin/kontras tajam) */
+  --text-muted: #8a8079;
+
+  --bg: #f2efec;             /* off-white hangat, sebelumnya #f8f9fa yang lebih putih */
+  --bg-alt: #e8e2dc;
+  --surface: #faf8f6;        /* bukan putih murni, mengurangi silau */
+  --border: #ddd5cd;
+
+  --success: #6f9b7d;
+  --success-bg: #e6ede7;
+  --success-text: #3f6248;
+  --warning: #c99a53;
+  --warning-bg: #f2e9d9;
+  --warning-text: #8a6a30;
+  --danger: #bd645e;
+  --danger-bg: #f2e3e1;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  --max-width: 900px;
+  --transition: 0.2s ease;
+}
+
+/* ===== Dark mode: override semua CSS variable di atas ===== */
+:root[data-theme="dark"] {
+  --primary: #d488a3;
+  --primary-dark: #e1a3b8;
+  --primary-light: #362730;
+  --text: #e4e0dc;
+  --text-muted: #a19a93;
+
+  --bg: #1a1918;
+  --bg-alt: #212020;
+  --surface: #262524;
+  --border: #363432;
+
+  --success: #7fb794;
+  --success-bg: #1e2f22;
+  --success-text: #a3d3ae;
+  --warning: #d1ac6c;
+  --warning-bg: #332a17;
+  --warning-text: #e0c290;
+  --danger: #cf8a84;
+  --danger-bg: #332020;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+button { font-family: inherit; cursor: pointer; }
+input { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.btn-primary { background-color: var(--primary); color: #ffffff; }
+.btn-primary:hover { background-color: var(--primary-dark); }
+.btn-primary:disabled { background-color: var(--border); color: var(--text-muted); cursor: not-allowed; }
+
+.btn-secondary { background-color: var(--surface); color: var(--text); border: 2px solid var(--border); }
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+.btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary:disabled:hover { border-color: var(--border); color: var(--text); }

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   RESEPIN — RESPONSIVE.CSS
+   Seluruh media query, dipisah supaya gampang dicari & tidak tercampur
+   dengan style dasar komponennya.
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .recipe-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .recipe-grid { grid-template-columns: 1fr; }
+  .ingredient-input-row { flex-direction: column; }
+  .generator-card { padding: 20px; }
+  .hero { padding: 32px 16px; }
+  .generator-section { padding: 24px 16px; }
+  .modal { max-height: 92vh; }
+
+  .navbar-inner { padding: 12px 16px; }
+
+  .pagination { flex-wrap: wrap; gap: 10px; }
+  .pagination-info { order: -1; width: 100%; text-align: center; }
+
+  .detail-top-row { flex-wrap: wrap; }
+  .recipe-card-fav-labeled { font-size: 13px; padding: 8px 14px; }
+}
